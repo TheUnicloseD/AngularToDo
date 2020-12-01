@@ -26,4 +26,23 @@ export class TodoListComponent implements OnInit {
     get items(): TodoItemData[] {
         return this.todoList.items;
     }
+
+    appendItem(label: string){
+        this.todoService.appendItems({
+            label,
+            isDone:false
+        });
+    }
+
+    itemDone(item: TodoItemData, done:boolean){
+        this.todoService.setItemsDone(done,item);
+    }
+
+    itemLabel(item: TodoItemData, label:string){
+        this.todoService.setItemsLabel(label,item);
+    }
+  
+    itemDelete(item: TodoItemData) {
+        this.todoService.removeItems(item);
+    } 
 }

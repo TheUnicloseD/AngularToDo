@@ -18,63 +18,22 @@
     </ul>
   </section>
   <footer class="footer">
-    <span class="todo-count"><strong></strong> restantes</span>
+    <span class="todo-count"><strong></strong> you have {{items.length}} tasks restantes</span>
     <ul class="filters">
       <li>
-        <a class="filterAll">Tous</a>
+        <a class="filterAll" (click)="itemFilter(all)">Tous</a>
       </li>
       <li>
-        <a class="filterActives">Actifs</a>
+        <a class="filterActives" (click)="itemFilter(active)">Actifs</a>
       </li>
       <li>
-        <a class="filterCompleted">Complétés</a>
+        <a class="filterCompleted" (click)="itemFilter(done)">Complétés</a>
       </li>
     </ul>
     <button class="clear-completed">Supprimer cochées</button>
   </footer>
 </section>
 <hr/>
-
-<!-- Version debug de la liste V1 -->
-<h2>Debug V1</h2>
-<ul>
-    <li *ngFor="let item of items">
-        {{item|json}}
-    </li>
-</ul>
-
-<!-- Version debug de la liste V2, avec checkbox -->
-<!-- si on clique sur la checkbox, le json n'est pas modifié… -->
-<h2>Debug V2</h2>
-<ul>
-    <li *ngFor="let item of items">
-        <input type="checkbox" [ngModel]="item.isDone" />
-        <label>{{item.label}}</label>
-        <pre>{{item|json}}</pre>
-    </li>
-</ul>
-
-<!-- Version debug de la liste V3, json modifié -->
-<h2>Debug V3</h2>
-<ul>
-    <li *ngFor="let item of items">
-        <input type="checkbox" [ngModel]="item.isDone" (ngModelChange)="itemDone(item,$event)" />
-        <label>{{item.label}}</label>
-        <pre>{{item|json}}</pre>
-    </li>
-</ul>
-
-<!-- Version debug de la liste V4, edition du texte -->
-<h2>Debug V4</h2>
-<ul>
-    <li *ngFor="let item of items">
-        <input type="checkbox" [ngModel]="item.isDone" (ngModelChange)="itemDone(item,$event)" />
-        <form (submit)="itemLabel(item, newLab.value)">
-            <input type="text" name="label" [ngModel]="item.label" #newLab/>
-        </form>
-        <pre>{{item|json}}</pre>
-    </li>
-</ul>
 
 <!-- Version debug de la liste V5, suppression de l'item -->
 <h2>Debug V5</h2>
@@ -85,6 +44,7 @@
             <input type="text" name="label" [ngModel]="item.label" #newLab/>
         </form>
         <button (click)="itemDelete(item)">Remove</button>
+        <button *ngIf="items.length>0" (click)="allDelete(items)">Remove All</button>
         <pre>{{item|json}}</pre>
     </li>
 </ul>

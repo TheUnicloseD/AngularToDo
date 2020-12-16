@@ -7,7 +7,7 @@ import {TodoItemData} from './dataTypes/TodoItemData';
 export class TodoService {
 
   private todoListSubject = new BehaviorSubject<TodoListData>( {label: 'TodoList', items: []} );
-
+  private itemsFil = []
   constructor() { }
 
   getTodoListDataObservable(): Observable<TodoListData> {

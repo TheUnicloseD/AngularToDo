@@ -45,4 +45,9 @@ export class TodoListComponent implements OnInit {
     itemDelete(item: TodoItemData) {
         this.todoService.removeItems(item);
     } 
+
+    allDelete(items: TodoItemData[]){
+        this.todoService.removeItems(...items);
+    }
+
 }

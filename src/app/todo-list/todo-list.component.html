@@ -21,16 +21,17 @@
     <span class="todo-count"><strong></strong> you have {{items.length}} tasks restantes</span>
     <ul class="filters">
       <li>
-        <a class="filterAll" (click)="itemFilter(all)">Tous</a>
+        <a class="filterAll" (click)="filter='all'">Tous</a>
       </li>
       <li>
-        <a class="filterActives" (click)="itemFilter(active)">Actifs</a>
+        <a class="filterActives" (click)="filter='active'">Actifs</a>
       </li>
       <li>
-        <a class="filterCompleted" (click)="itemFilter(done)">Complétés</a>
+        <a class="filterCompleted" (click)="filter='ok'">Complétés</a>
       </li>
     </ul>
-    <button class="clear-completed">Supprimer cochées</button>
+    <button class="clear-completed" *ngIf="itemsOk.length>0" (click)="allDelete(itemsOk)">Supprimer cochées</button>
+    <!-- <button *ngIf="items.length>1" (click)="allDelete(items)">Remove All</button> -->
   </footer>
 </section>
 <hr/>
@@ -38,13 +39,12 @@
 <!-- Version debug de la liste V5, suppression de l'item -->
 <h2>Debug V5</h2>
 <ul>
-    <li *ngFor="let item of items">
+    <li *ngFor="let item of filterItems()">
         <input type="checkbox" [ngModel]="item.isDone" (ngModelChange)="itemDone(item,$event)" />
         <form (submit)="itemLabel(item, newLab.value)">
             <input type="text" name="label" [ngModel]="item.label" #newLab/>
         </form>
         <button (click)="itemDelete(item)">Remove</button>
-        <button *ngIf="items.length>0" (click)="allDelete(items)">Remove All</button>
         <pre>{{item|json}}</pre>
     </li>
 </ul>

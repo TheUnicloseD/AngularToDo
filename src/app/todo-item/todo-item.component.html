@@ -2,6 +2,7 @@
   <input 	class			= "toggle"
           type			= "checkbox"
           name			= "fait"
+          (click) = "doneEvent.emit({b:!itemData.isDone,data:itemData})" 
   />
   <label 	class="texte"></label>
   <button class="destroy"></button>

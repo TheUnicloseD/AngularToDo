@@ -11,6 +11,7 @@ import {TodoService} from '../todo.service';
 export class TodoListComponent implements OnInit {
 
     private todoList: TodoListData; 
+    filter: "all" | "active" | "ok";
     
     constructor(private todoService: TodoService) {
         todoService.getTodoListDataObservable().subscribe( tdl => this.todoList = tdl );
@@ -25,6 +26,14 @@ export class TodoListComponent implements OnInit {
     
     get items(): TodoItemData[] {
         return this.todoList.items;
+    }
+
+    get itemsActive(): TodoItemData[]{
+        return this.items.filter(i => !i.isDone);
+    }
+
+    get itemsOk(): TodoItemData[]{
+        return this.items.filter(i => i.isDone);
     }
 
     appendItem(label: string){
@@ -48,6 +57,19 @@ export class TodoListComponent implements OnInit {
 
     allDelete(items: TodoItemData[]){
         this.todoService.removeItems(...items);
+    }
+
+    filterItems(): TodoItemData[]{
+        if (this.filter == "all"){
+            return this.todoList.items;
+        }
+        if (this.filter == "active"){
+            return this.itemsActive;
+        }
+        if (this.filter == "ok"){
+            return this.itemsOk;
+        }
+        return this.todoList.items;
     }
 
 }

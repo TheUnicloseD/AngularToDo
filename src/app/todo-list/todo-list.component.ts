@@ -19,7 +19,7 @@ export class TodoListComponent implements OnInit {
 
     ngOnInit() {
     }
-    
+
     get label(): string {
         return this.todoList.label;
     }
@@ -45,6 +45,23 @@ export class TodoListComponent implements OnInit {
 
     itemDone(item: TodoItemData, done:boolean){
         this.todoService.setItemsDone(done,item);
+    }
+
+    toggleAll() {
+        let allItemOk = true;
+        for(let item of this.todoList.items){
+            if (item.isDone == false){
+                this.todoService.setItemsDone(true,item);
+                allItemOk = false;
+            }
+        }
+        if(allItemOk){
+         for(var item of this.todoList.items){
+              this.todoService.setItemsDone(false,item);
+             }
+             allItemOk = false;
+            }
+          
     }
 
     itemLabel(item: TodoItemData, label:string){

@@ -18,6 +18,9 @@ export class TodoListComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (localStorage.getItem("todolist") !== null) {
+            this.todoList.items = JSON.parse(localStorage.getItem("todolist"));
+          }
     }
 
     get label(): string {

@@ -7,6 +7,7 @@ import {TodoItemData} from './dataTypes/TodoItemData';
 export class TodoService {
 
   private todoListSubject = new BehaviorSubject<TodoListData>( {label: 'TodoList', items: []} );
+  myAngularxQrCode: string;
   constructor() { }
 
   getTodoListDataObservable(): Observable<TodoListData> {
@@ -47,6 +48,13 @@ export class TodoService {
       items: tdl.items.filter( I => items.indexOf(I) === -1 )
     });
     localStorage.setItem("todolist", JSON.stringify(this.todoListSubject.getValue().items));
+  }
+
+  createQrcode() {
+    console.log("QR")
+    const localStorageItems = localStorage.getItem("todolist")
+    this.myAngularxQrCode = JSON.stringify(localStorageItems);
+    console.log(this.myAngularxQrCode)
   }
 
 }

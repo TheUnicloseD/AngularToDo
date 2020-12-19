@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TodoListData} from '../dataTypes/TodoListData';
 import {TodoItemData} from '../dataTypes/TodoItemData';
 import {TodoService} from '../todo.service';
+import { QRCodeModule } from 'angular2-qrcode';
 
 @Component({
     selector: 'app-todo-list',
@@ -12,6 +13,7 @@ export class TodoListComponent implements OnInit {
 
     private todoList: TodoListData; 
     filter: "all" | "active" | "ok";
+    myAngularxQrCode: string;
     
     constructor(private todoService: TodoService) {
         todoService.getTodoListDataObservable().subscribe( tdl => this.todoList = tdl );

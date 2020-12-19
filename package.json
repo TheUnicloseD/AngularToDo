@@ -21,6 +21,8 @@
     "@angular/platform-browser-dynamic": "^8.2.10",
     "@angular/router": "^8.2.10",
     "@ionic/angular": "^5.5.2",
+    "angular2-qrcode": "^2.0.3",
+    "angularx-qrcode": "^10.0.11",
     "core-js": "^2.4.1",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.0.0-rc.0",

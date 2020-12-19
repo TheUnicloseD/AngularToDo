@@ -13,7 +13,8 @@ export class TodoItemComponent implements OnInit {
   private edit: boolean;
 
   constructor(private todoService: TodoService) { }
-
+  
+  // fixer l'edit sur faux lors du démarrage de l'application
   ngOnInit() {
     this.edit = false;
     console.log(this.edit)
@@ -31,11 +32,12 @@ export class TodoItemComponent implements OnInit {
     this.todoService.removeItems(this.itemData)
   }
 
+  // fixer l'edit sur vrai lorsque l'on double click sur une tache 
   itemEdit() {
     this.edit = true;
-    console.log(this.edit)
   }
 
+  // lors de l'edit d'un label, sauvegarder la nouvelle valeur ou supprimer la tache si la nouvelle valeur est vide
   itemLabel(label: string) {
     if (label) {
       this.todoService.setItemsLabel(label, this.itemData);

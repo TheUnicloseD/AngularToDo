@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {TodoListData} from '../dataTypes/TodoListData';
 import {TodoItemData} from '../dataTypes/TodoItemData';
 import {TodoService} from '../todo.service';
@@ -19,6 +19,7 @@ export class TodoListComponent implements OnInit {
         todoService.getTodoListDataObservable().subscribe( tdl => this.todoList = tdl );
     }
 
+    // chargement du local storage quand l'application est ouverte
     ngOnInit() {
         if (localStorage.getItem("todolist") !== null) {
             this.todoList.items = JSON.parse(localStorage.getItem("todolist"));
@@ -33,10 +34,12 @@ export class TodoListComponent implements OnInit {
         return this.todoList.items;
     }
 
+    // récupérer les itemps non cochés
     get itemsActive(): TodoItemData[]{
         return this.items.filter(i => !i.isDone);
     }
 
+    //récupérer les items cochés
     get itemsOk(): TodoItemData[]{
         return this.items.filter(i => i.isDone);
     }
@@ -52,6 +55,8 @@ export class TodoListComponent implements OnInit {
         this.todoService.setItemsDone(done,item);
     }
 
+    // Tout cochés si certaines taches ne sont pas cochés, tout décoché si tout est coché.
+    @HostListener('document:keydown.control.b')
     toggleAll() {
         let allItemOk = true;
         for(let item of this.todoList.items){
@@ -77,10 +82,12 @@ export class TodoListComponent implements OnInit {
         this.todoService.removeItems(item);
     } 
 
+    // supprimer toutes les tâches (ou seulement les tâches cochées selon les items passées en paramètre)
     allDelete(items: TodoItemData[]){
         this.todoService.removeItems(...items);
     }
 
+    // filtrer les items lors du clic sur les 3 filtres proposé sur l'appli
     filterItems(): TodoItemData[]{
         if (this.filter == "all"){
             return this.todoList.items;

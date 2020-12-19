@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
+import { HostListener, Injectable } from '@angular/core';
 import {TodoListData} from './dataTypes/TodoListData';
 import {Observable, BehaviorSubject} from 'rxjs';
 import {TodoItemData} from './dataTypes/TodoItemData';
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 
 @Injectable()
 export class TodoService {
@@ -50,11 +53,56 @@ export class TodoService {
     localStorage.setItem("todolist", JSON.stringify(this.todoListSubject.getValue().items));
   }
 
+  // générer un QR code avec les valeurs de notre todo list
   createQrcode() {
     console.log("QR")
     const localStorageItems = localStorage.getItem("todolist")
     this.myAngularxQrCode = JSON.stringify(localStorageItems);
     console.log(this.myAngularxQrCode)
   }
+
+  // fixer la valeur du QR Code à vide pour que il disparaisse de notre appli
+  cacherQrcode() {
+    this.myAngularxQrCode = '';
+  }
+
+  // Créer un nouvel utilisateur dans notre base Firebase
+  createNewUser(email: string, password: string) {
+    return new Promise<void>(
+      (resolve, reject) => {
+        firebase.auth().createUserWithEmailAndPassword(email, password).then(
+          () => {
+            resolve();
+          },
+          (error) => {
+            reject(error);
+          }
+        );
+      }
+    );
+}
+
+// Connecter un utilisateur à notre appli si il a deja créer un compte preceddement
+signInUser(email: string, password: string) {
+  return new Promise<void>(
+    (resolve, reject) => {
+      firebase.auth().signInWithEmailAndPassword(email, password).then(
+        () => {
+          resolve();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    }
+  );
+}
+
+// Deconnecter l'utilisateur de notre application.
+signOutUser() {
+  firebase.auth().signOut();
+}
+
+
 
 }

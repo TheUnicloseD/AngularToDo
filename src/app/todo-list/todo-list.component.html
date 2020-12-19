@@ -16,7 +16,7 @@
     />
   </section>
   <footer class="footer">
-    <span class="todo-count"><strong></strong> you have {{items.length}} tasks restantes</span>
+    <span class="todo-count"><strong></strong> Vous avez {{itemsActive.length}} tache/es restantes</span>
     <ul class="filters">
       <li>
         <a class="filterAll" (click)="filter='all'">Tous</a>
@@ -27,14 +27,18 @@
       <li>
         <a class="filterCompleted" (click)="filter='ok'">Complétés</a>
       </li>
+      <li>
+        <a class="clear-completed" *ngIf="itemsOk.length>0" (click)="allDelete(itemsOk)">Supprimer Cochées</a>
+      </li>
+      <li>
+        <a *ngIf="items.length>1" (click)="allDelete(items)">Tout Supprimer</a>
+      </li>
     </ul>
-    <button class="clear-completed" *ngIf="itemsOk.length>0" (click)="allDelete(itemsOk)">Supprimer cochées</button>
-    <!-- <button *ngIf="items.length>1" (click)="allDelete(items)">Remove All</button> -->
   </footer>
 </section>
 <hr/>
 
-<!-- Version debug de la liste V5, suppression de l'item -->
+<!-- Version debug de la liste V5, suppression de l'item 
 <h2>Debug V5</h2>
 <ul>
     <li *ngFor="let item of filterItems()">
@@ -45,7 +49,7 @@
         <pre>{{item|json}}</pre>
     </li>
 </ul>
-<h2>Debug V6</h2>
+-->
 <ul class="todo-list">
 
   <app-todo-item *ngFor="let item of filterItems()" [todoItem]="item" ></app-todo-item>

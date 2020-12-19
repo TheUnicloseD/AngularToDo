@@ -28,7 +28,7 @@ body {
   background: #f5f5f5;
   color: #4d4d4d;
   min-width: 230px;
-  max-width: 550px;
+  max-width: 700px;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -102,7 +102,6 @@ input[type="checkbox"] {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
 }
 
 .new-todo {
@@ -159,21 +158,19 @@ label[for='toggle-all'] {
   border-bottom: none;
 }
 
-.todo-list li.editing {
+.todo-list li.editT {
   border-bottom: none;
   padding: 0;
 }
 
-.todo-list li.editing .edit {
+.todo-list li.editT .edit {
   display: block;
   width: 506px;
   padding: 13px 17px 12px 17px;
   margin: 0 0 0 43px;
 }
 
-.todo-list li.editing .view {
-  display: none;
-}
+
 
 .todo-list li .toggle {
   text-align: center;
@@ -239,11 +236,9 @@ label[for='toggle-all'] {
   display: block;
 }
 
-.todo-list li .edit {
-  display: none;
-}
 
-.todo-list li.editing:last-child {
+
+.todo-list li.editT:last-child {
   margin-bottom: -1px;
 }
 
@@ -283,7 +278,7 @@ label[for='toggle-all'] {
   margin: 0;
   padding: 0;
   list-style: none;
-  position: absolute;
+  position: relative;
   right: 0;
   left: 0;
 }
@@ -303,25 +298,12 @@ label[for='toggle-all'] {
 
 .filters li a.selected,
 .filters li a:hover {
-  border-color: rgba(175, 47, 47, 0.1);
+  border-color: rgba(20, 4, 4, 0.1);
+  cursor: pointer;
 }
 
 .filters li a.selected {
   border-color: rgba(175, 47, 47, 0.2);
-}
-
-.clear-completed,
-html .clear-completed:active {
-  float: right;
-  position: relative;
-  line-height: 20px;
-  text-decoration: none;
-  cursor: pointer;
-  position: relative;
-}
-
-.clear-completed:hover {
-  text-decoration: underline;
 }
 
 .info {

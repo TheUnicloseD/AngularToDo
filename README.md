@@ -14,7 +14,7 @@ Ajout des fonctionnalités de la TODOLIST Vanilla :
 
 ## Effacer Tout
 
-Le bouton Supprimer Tout fonctionne correctement
+Le bouton Supprimer Tout fonctionne correctement.
 
 ## Sérialisation / désérialisation des données localement (Local Storage) - Pour sauvegarder les données localement
 
@@ -31,9 +31,9 @@ Affichage d'un QR Code qui permet d'exporter notre liste. La forme des données 
 ## Passage à une application hybride avec IONIC
 
 Le projet est initialisé avec Ionic grâce à la commande "ionic init". 2 lignes de codes ont du être changé pour que l'appli soit deployable : dans index.html, "<base href=”/”>" par "<base href=”./”>" et dans angular.json, le outputh-path "dist" par "www".
-Les versions Android et IOS sont disponibles via les commandes "ionic cordova run android" et "ionic cordova run ios"
+Les versions Android et IOS sont disponibles via les commandes "ionic cordova run android" et "ionic cordova run ios". 
 
-# Problème rencontrés 
+# Problèmes rencontrés 
 
 ## Responsive
 
@@ -46,6 +46,14 @@ Les données exporté par le QR Code ne sont pas idéales à lire (même si elle
 ## Firebase
 
 J'ai essayer de connecter mon appli à une base de données Firebase mais je n'ai pas réussi à gérer le stockage et l'affichage des données. La création de compte, la connexion et la déconnexion des utilisateurs marchaient mais je l'ai enlevé de l'application car inutile sans affichage des données; J'ai neanmoins laisser les fonctions qui permettaient ça et la config de ma base Firebase dans le cas ou vous souhaitez les voirs. 
+
+## CSS
+
+Je n'ai pas trop changer l'IHM par rapport à celle de l'application de base, préférent me concentrer sur la partie technique
+
+## Angular 
+
+J'aurais aimé ajouter d'autres fonctionalité ou améliorer celles présentent mais j'ai eu un peu de mal à m'habituer à Angular au milieu de tous les autres projets qu'on avait en cours. En effet Angular est assez différents des frameworks utilisé dans les autres projets et lors de différents tests réalisé pour des offres de stage, et j'ai trouvé assez difficile de switcher entre ces frameworks. 
 
 # Lancement du projet
 "npm install"

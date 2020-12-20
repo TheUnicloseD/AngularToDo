@@ -70,7 +70,7 @@ Ce message s'affiche lors de la commande "ionic cordova run android --device". J
 J'aurais aimé ajouter d'autres fonctionalité ou améliorer celles présentent mais j'ai eu un peu de mal à m'habituer à Angular au milieu de tous les autres projets qu'on avait en cours. En effet Angular est assez différents des frameworks utilisé dans les autres projets et lors de différents tests réalisé pour des offres de stage, et j'ai trouvé assez difficile de switcher entre ces frameworks. J'espère néanmoins que mon travail sur ce projet sera suffisant pour m'assurer la moyenne !
 
 # Lancement du projet
-git clone "https://github.com/TheUnicloseD/AngularToDo.git"
+"git clone https://github.com/TheUnicloseD/AngularToDo.git"
 
 "cd AngularToDo"
 

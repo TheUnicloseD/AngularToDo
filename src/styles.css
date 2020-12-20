@@ -301,6 +301,10 @@ label[for='toggle-all'] {
   border-radius: 3px;
 }
 
+.texteDone{
+  text-decoration: line-through;
+}
+
 .filters li a.selected,
 .filters li a:hover {
   border-color: rgba(20, 4, 4, 0.1);

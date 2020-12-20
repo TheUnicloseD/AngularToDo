@@ -6,7 +6,8 @@
         [ngModel]="itemData.isDone" 
         (ngModelChange) = "itemDone($event)"
   />
-  <label 	class="texte" (dblclick)="itemEdit()">{{itemData.label}}</label>
+  <label 	*ngIf="itemData.isDone == true" class="texteDone" (dblclick)="itemEdit()">{{itemData.label}}</label>
+  <label 	*ngIf="itemData.isDone == false" class="texteNotDone" (dblclick)="itemEdit()">{{itemData.label}}</label>
   <button  class="destroy" (click)="itemDelete()"></button>
 </div>
 </li>

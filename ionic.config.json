@@ -1,5 +1,7 @@
 {
   "name": "PWA-TP3",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

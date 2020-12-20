@@ -31,7 +31,7 @@ Affichage d'un QR Code qui permet d'exporter notre liste. La forme des données 
 ## Passage à une application hybride avec IONIC
 
 Le projet est initialisé avec Ionic grâce à la commande "ionic init". 2 lignes de codes ont du être changé pour que l'appli soit deployable : dans index.html, "<base href=”/”>" par "<base href=”./”>" et dans angular.json, le outputh-path "dist" par "www".
-Les versions Android et IOS sont disponibles via les commandes "ionic cordova run android" et "ionic cordova run ios". 
+Les versions Android et IOS sont disponibles via les commandes "ionic cordova run android" et "ionic cordova run ios". J'ai neanmoins un problème avec cette commande (voir ci-dessous dans la partie problème rencontrés)
 
 # Problèmes rencontrés 
 
@@ -49,11 +49,25 @@ J'ai essayer de connecter mon appli à une base de données Firebase mais je n'a
 
 ## CSS
 
-Je n'ai pas trop changer l'IHM par rapport à celle de l'application de base, préférent me concentrer sur la partie technique
+Je n'ai pas trop changer l'IHM par rapport à celle de l'application de base, préférent me concentrer sur la partie technique.
+
+## IONIC 
+
+ionic cordova run android --device
+> ng.cmd run app:ionic-cordova-build --platform=android
+An unhandled exception occurred: Project does not exist.app
+See "C:\Users\romai\AppData\Local\Temp\ng-Klpbzv\angular-errors.log" for further details.
+[ERROR] An error occurred while running subprocess ng.
+
+        ng.cmd run app:ionic-cordova-build --platform=android exited with exit code 127.
+
+        Re-running this command with the --verbose flag may provide more information.
+       
+Ce message s'affiche lors de la commande "ionic cordova run android --device". J'ai pourtant réaliser un projet dans le cours d'IHM avec Ionic et je n'ai eu acun problème à deployer l'appli. Le problème vient peut être du fait que cette appli n'a pas été réaliser dès le début en Ionic. J'ai essayer de corriger l'erreur mais je n'ai malheuresement pas eu le temps vu que j'ai deployer l'appli ionic quelques minutes avant le rendu final (pensant naivement que comme je l'avais déjà fait, cela serait assez rapide). Peut être que le deploiement marcherait via un émulateur android mais je n'ai malheuresement eu le temps d'essayer que sur mon smartphone. Tout le build nécessaire au deploiement est neanmoins réussi et la correction de cette erreur devrait suffire pour que l'application marche sur android et IOS.
 
 ## Angular 
 
-J'aurais aimé ajouter d'autres fonctionalité ou améliorer celles présentent mais j'ai eu un peu de mal à m'habituer à Angular au milieu de tous les autres projets qu'on avait en cours. En effet Angular est assez différents des frameworks utilisé dans les autres projets et lors de différents tests réalisé pour des offres de stage, et j'ai trouvé assez difficile de switcher entre ces frameworks. 
+J'aurais aimé ajouter d'autres fonctionalité ou améliorer celles présentent mais j'ai eu un peu de mal à m'habituer à Angular au milieu de tous les autres projets qu'on avait en cours. En effet Angular est assez différents des frameworks utilisé dans les autres projets et lors de différents tests réalisé pour des offres de stage, et j'ai trouvé assez difficile de switcher entre ces frameworks. J'espère néanmoins que mon travail sur ce projet sera suffisant pour m'assurer la moyenne !
 
 # Lancement du projet
 "npm install"

@@ -29,16 +29,18 @@
       </ul>
       <ul class="filters">
       <li>
-        <a class="clear-completed" *ngIf="itemsOk.length>0" (click)="allDelete(itemsOk)">Supprimer Cochées</a>
+        <a class="clear-completed" *ngIf="itemsOk.length>0" (click)="allDelete(itemsOk)">SupprimerCochées</a>
       </li>
       <li>
-        <a *ngIf="items.length>1" (click)="allDelete(items)">Tout Supprimer</a>
+        <a *ngIf="items.length>1" (click)="allDelete(items)">ToutSupprimer</a>
+      </li>
+      </ul>
+      <ul class="filters">
+      <li>
+        <a *ngIf="items.length>0" (click)="todoService.createQrcode()">AfficherQR</a>
       </li>
       <li>
-        <a *ngIf="items.length>0" (click)="todoService.createQrcode()">Afficher QR</a>
-      </li>
-      <li>
-        <a *ngIf="items.length>0" (click)="todoService.cacherQrcode()">Cacher QR</a>
+        <a *ngIf="items.length>0" (click)="todoService.cacherQrcode()">CacherQR</a>
       </li>
     </ul>
     <span class="todo-count"> Vous avez {{itemsActive.length}} tache/es restantes</span>

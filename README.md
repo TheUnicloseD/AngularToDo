@@ -71,8 +71,11 @@ J'aurais aimé ajouter d'autres fonctionalité ou améliorer celles présentent 
 
 # Lancement du projet
 git clone "https://github.com/TheUnicloseD/AngularToDo.git"
+
 "cd AngularToDo"
+
 "npm install"
+
 "npm start"
 
 Si il y a le moindre problème qui n'est pas défini ici, n'hésitez pas à me contacter à l'adresse suivante : romain.pinelgermain@gmail.com
